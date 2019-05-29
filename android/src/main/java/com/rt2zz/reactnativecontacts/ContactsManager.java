@@ -967,40 +967,49 @@ public class ContactsManager extends ReactContextBaseJavaModule implements Activ
      * http://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone.html
      */
     private int mapStringToPhoneType(String label) {
-        int phoneType;
-        switch (label) {
-            case "home":
-                phoneType = CommonDataKinds.Phone.TYPE_HOME;
-                break;
-            case "work":
-                phoneType = CommonDataKinds.Phone.TYPE_WORK;
-                break;
-            case "mobile":
-                phoneType = CommonDataKinds.Phone.TYPE_MOBILE;
-                break;
-            case "main":
-                phoneType = CommonDataKinds.Phone.TYPE_MAIN;
-                break;
-            case "work fax":
-                phoneType = CommonDataKinds.Phone.TYPE_FAX_WORK;
-                break;
-            case "home fax":
-                phoneType = CommonDataKinds.Phone.TYPE_FAX_HOME;
-                break;
-            case "pager":
-                phoneType = CommonDataKinds.Phone.TYPE_PAGER;
-                break;
-            case "work_pager":
-                phoneType = CommonDataKinds.Phone.TYPE_WORK_PAGER;
-                break;
-            case "work_mobile":
-                phoneType = CommonDataKinds.Phone.TYPE_WORK_MOBILE;
-                break;
-            default:
-                phoneType = CommonDataKinds.Phone.TYPE_CUSTOM;
-                break;
+        if (label.equalsIgnoreCase("home")) {
+            return CommonDataKinds.Phone.TYPE_HOME;
+        } else if (label.equalsIgnoreCase("work")) {
+            return CommonDataKinds.Phone.TYPE_WORK;
+        } else if (label.equalsIgnoreCase("mobile")) {
+            return CommonDataKinds.Phone.TYPE_MOBILE;
+        } else if (label.equalsIgnoreCase("fax_work")) {
+            return CommonDataKinds.Phone.TYPE_FAX_WORK;
+        } else if (label.equalsIgnoreCase("fax_home")) {
+            return CommonDataKinds.Phone.TYPE_FAX_HOME;
+        } else if (label.equalsIgnoreCase("other")) {
+            return CommonDataKinds.Phone.TYPE_OTHER;
+        } else if (label.equalsIgnoreCase("callback")) {
+            return CommonDataKinds.Phone.TYPE_CALLBACK;
+        } else if (label.equalsIgnoreCase("car")) {
+            return CommonDataKinds.Phone.TYPE_CAR;
+        } else if (label.equalsIgnoreCase("company_main")) {
+            return CommonDataKinds.Phone.TYPE_COMPANY_MAIN;
+        } else if (label.equalsIgnoreCase("isdn")) {
+            return CommonDataKinds.Phone.TYPE_ISDN;
+        } else if (label.equalsIgnoreCase("main")) {
+            return CommonDataKinds.Phone.TYPE_MAIN;
+        } else if (label.equalsIgnoreCase("other_fax")) {
+            return CommonDataKinds.Phone.TYPE_OTHER_FAX;
+        } else if (label.equalsIgnoreCase("radio")) {
+            return CommonDataKinds.Phone.TYPE_RADIO;
+        } else if (label.equalsIgnoreCase("telex")) {
+            return CommonDataKinds.Phone.TYPE_TELEX;
+        } else if (label.equalsIgnoreCase("tty_tdd")) {
+            return CommonDataKinds.Phone.TYPE_TTY_TDD;
+        } else if (label.equalsIgnoreCase("work_mobile")) {
+            return CommonDataKinds.Phone.TYPE_WORK_MOBILE;
+        } else if (label.equalsIgnoreCase("work_pager")) {
+            return CommonDataKinds.Phone.TYPE_WORK_PAGER;
+        } else if (label.equalsIgnoreCase("assistant")) {
+            return CommonDataKinds.Phone.TYPE_ASSISTANT;
+        } else if (label.equalsIgnoreCase("mms")) {
+            return CommonDataKinds.Phone.TYPE_MMS;
+        } else if ((label != null) && (!label.isEmpty())) {
+            return CommonDataKinds.Phone.TYPE_CUSTOM;
+        } else {
+            return CommonDataKinds.Phone.TYPE_OTHER;
         }
-        return phoneType;
     }
 
     /*
